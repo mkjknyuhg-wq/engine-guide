@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>VANTA AI</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">V</div><div><strong>VANTA AI</strong><small>AI Workbench</small></div></div>
+      <button class="primary-btn" id="newChat">＋ محادثة جديدة</button>
+      <div class="side-label">مساحة العمل</div>
+      <button class="nav-item active" data-panel="chat">◉ <span>المحادثة الذكية</span></button>
+      <button class="nav-item" data-panel="files">▤ <span>ملفات ومشاريع</span></button>
+      <div class="sidebar-bottom">
+        <div class="status-dot" id="statusDot"></div><span id="statusText">يفحص الاتصال...</span>
+        <p class="muted tiny">نسخة أولية · مجانية للبدء</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="القائمة">☰</button>
+        <div><span class="eyebrow">مساحة العمل الخاصة بك</span><h1 id="pageTitle">المحادثة الذكية</h1></div>
+        <div class="top-pill">● متصل بالواجهة</div>
+      </header>
+
+      <section class="panel chat-panel" id="chatPanel">
+        <div class="welcome" id="welcome">
+          <div class="orb">V</div>
+          <span class="eyebrow">ابدأ من هنا</span>
+          <h2>شن بنبنوا اليوم؟</h2>
+          <p>اكتب فكرتك، أنشئ أكوادًا وملفات، واشتغل على مشروعك من مكان واحد.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="أنشئ لي صفحة HTML عربية أنيقة لتطبيق إدارة المهام.">✦ أنشئ صفحة ويب</button>
+            <button class="suggestion" data-prompt="اكتب سكربت Python يرتب الملفات حسب امتدادها، واشرح طريقة تشغيله.">⌘ اكتب كودًا</button>
+            <button class="suggestion" data-prompt="ساعدني في تخطيط مشروع تطبيق أندرويد من الفكرة إلى البناء.">▣ خطط تطبيقًا</button>
+          </div>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+        <form class="composer" id="chatForm">
+          <textarea id="prompt" rows="1" placeholder="اكتب رسالتك أو وصف المشروع..." required></textarea>
+          <div class="composer-footer"><span>لا تضع مفاتيح API أو كلمات مرور داخل المحادثة.</span><button class="send-btn" id="sendBtn" type="submit">إرسال ↑</button></div>
+        </form>
+      </section>
+
+      <section class="panel files-panel hidden" id="filesPanel">
+        <div class="files-heading"><div><span class="eyebrow">ملفاتك النصية والبرمجية</span><h2>مستكشف الملفات</h2></div><button class="primary-btn" id="createFile">＋ ملف جديد</button></div>
+        <div class="file-layout">
+          <div class="file-list" id="fileList"><div class="empty-state">ما فيش ملفات بعد. أنشئ أول ملف.</div></div>
+          <div class="editor">
+            <div class="editor-toolbar"><span id="fileName">ملف جديد</span><div><button class="subtle-btn" id="downloadFile">تنزيل</button><button class="primary-btn" id="saveFile">حفظ</button></div></div>
+            <input id="fileTitle" placeholder="اسم الملف، مثال: main.py" maxlength="100">
+            <textarea id="fileContent" spellcheck="false" placeholder="// اكتب الكود أو النص هنا"></textarea>
+            <div class="editor-note">الملفات محفوظة محليًا في هذا المتصفح. تنزيل الملف يحفظ نسخة على جهازك.</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
